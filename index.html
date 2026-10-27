@@ -24,7 +24,7 @@ hr{border:0;border-top:1px solid #ddd;margin:1.6rem 0}
 <h2>Push Guard</h2>
 <p class="meta"><strong><code>push-guard</code> 0.4.3</strong>, released October 20, 2026<br>
 <a href="https://pypi.org/project/push-guard/">PyPI</a> · <a href="https://github.com/Dragon-Lady/push-guard">Source</a></p>
-<p>A Git pre-push check. It scans what you are about to push, flags likely secrets and private file paths with the matched values hidden, and stops the push so credentials stay off GitHub.</p>
+<p>A local Git pre-push check for likely secret leaks and private file paths. It scans the content you are about to push, reports likely secret patterns with the matched values hidden, and blocks the push when it finds one.</p>
 <p>Upgrade note: 0.4.3 removes the inline <code># push-guard: ignore</code> exception.</p>
 <h2>Actions Warden</h2>
 <p class="meta"><strong><code>actions-warden</code> 0.1.5</strong>, released October 16, 2026<br>
