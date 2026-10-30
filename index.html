@@ -21,6 +21,12 @@ hr{border:0;border-top:1px solid #ddd;margin:1.6rem 0}
 <h1>Recent tool releases</h1>
 <p>Here are the tools Dragon Lady has released on PyPI and npm lately, with each tool's current version and what it does. Names, versions and dates come from each tool's PyPI or npm page (dates in UTC).</p>
 <hr>
+<h2>Twin Update</h2>
+<p class="meta"><strong><code>twin-update</code> 0.5.3</strong>, released October 30, 2026<br>
+<a href="https://pypi.org/project/twin-update/0.5.3/">PyPI</a> · <a href="https://github.com/Dragon-Lady/twin-update">Source</a> · <a href="https://github.com/Dragon-Lady/twin-update/releases/tag/v0.5.3">Release</a></p>
+<p>Closes, updates and verifies the same apt-packaged desktop apps on two Linux machines in one run, with a verified one-command rollback. Built for Debian and Ubuntu-family desktops.</p>
+<p>New in 0.5.3: two fixes to how leftover Cursor helpers are closed. Twin Update now checks again for Cursor's main process after each CPU sample, so if Cursor starts during the final sample, no helper is closed. And <code>twin-update close-helpers --json</code> now prints one valid JSON report and nothing else, whether the close goes ahead or is refused.</p>
+<p>Upgrade with <code>python -m pip install --upgrade twin-update==0.5.3</code>.</p>
 <h2>Raft Mover</h2>
 <p class="meta"><strong><code>raftmover</code> 0.1.2</strong>, released October 30, 2026<br>
 <a href="https://pypi.org/project/raftmover/0.1.2/">PyPI</a> · <a href="https://github.com/Dragon-Lady/raftmover">Source</a> · <a href="https://github.com/Dragon-Lady/raftmover/releases/tag/v0.1.2">Release</a></p>
