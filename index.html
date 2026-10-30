@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dragon Lady: Tool Releases</title>
+<title>Dragon Lady: Tool Releases and Engineering Notes</title>
 <style>
 body{margin:0;background:#fafafa;color:#1a1a1a;font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
 main{max-width:42rem;margin:0 auto;padding:1.5rem 1.1rem 3rem}
@@ -18,8 +18,19 @@ hr{border:0;border-top:1px solid #ddd;margin:1.6rem 0}
 </head>
 <body>
 <main>
-<h1>Recent tool releases</h1>
-<p>Here are the tools Dragon Lady has released on PyPI and npm lately, with each tool's current version and what it does. Names, versions and dates come from each tool's PyPI or npm page (dates in UTC).</p>
+<h1>Tool releases and engineering notes</h1>
+<p>Release notes and technical updates for Dragon Lady tools. Package entries link to their published PyPI or npm versions (release dates in UTC).</p>
+<hr>
+<article aria-labelledby="nightly-transfer-safety">
+<h2 id="nightly-transfer-safety">Nightly transfers: close first, verify before completion</h2>
+<p class="meta"><strong>Transfer orchestration update</strong> · October 30, 2026</p>
+<p>The nightly conversation-transfer workflow now separates scheduled transfers from software updates. It does not invoke the updater, wait for an installation password, or relaunch applications after transferring data.</p>
+<p>Before a transfer, the runner checks peer availability, requests a graceful application shutdown, and confirms the applications are closed. If shutdown fails or an application reopens, the closed-app guards stop further work. Recovery copies and rehearsed merges protect the destination before live imports; unresolved conversation conflicts stop the pipeline before import.</p>
+<p>Scheduling has two additional safeguards: a single-run lock prevents overlapping transfers, and a short overnight start window is checked again immediately before closing applications. A delayed invocation outside that window skips the transfer.</p>
+<p>Completion now requires a comparison of conversation IDs and transcript hashes, plus Cursor room content, across the transfer endpoints. A successful upload alone cannot mark the transfer complete. Failed comparisons leave the run incomplete; the completed baseline is recorded only after verification passes.</p>
+<p>Validation covers shutdown failures, unavailable peers, late starts, reopened applications and content mismatches. Disposable SQLite fixtures exercise Cursor's inline and chunked conversation formats, destination backups and transaction rollback.</p>
+<p>This is an orchestration update, not a new PyPI or npm package release. Installing Twin Update, Raft Mover or Raft Ward does not enable this nightly workflow.</p>
+</article>
 <hr>
 <h2>Twin Update</h2>
 <p class="meta"><strong><code>twin-update</code> 0.5.3</strong>, released October 30, 2026<br>
@@ -76,7 +87,7 @@ hr{border:0;border-top:1px solid #ddd;margin:1.6rem 0}
 <a href="https://pypi.org/project/twin-update/">PyPI</a> · <a href="https://github.com/Dragon-Lady/twin-update">Source</a></p>
 <p>Closes, updates and verifies the same apt-packaged desktop apps on two Linux machines in one run, with a verified one-command rollback. Built for Debian and Ubuntu-family desktops.</p>
 <hr>
-<p>Each new release will get its own short entry here.</p>
+<p>New releases and engineering updates get their own short entries here.</p>
 </main>
 </body>
 </html>
