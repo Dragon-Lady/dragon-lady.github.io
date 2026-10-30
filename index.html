@@ -19,8 +19,19 @@ hr{border:0;border-top:1px solid #ddd;margin:1.6rem 0}
 <body>
 <main>
 <h1>Recent tool releases</h1>
-<p>Here are the tools Dragon Lady has released on PyPI lately, with each tool's current version and what it does. Names, versions and dates come from each tool's PyPI page (dates in UTC).</p>
+<p>Here are the tools Dragon Lady has released on PyPI and npm lately, with each tool's current version and what it does. Names, versions and dates come from each tool's PyPI or npm page (dates in UTC).</p>
 <hr>
+<h2>Twin Update</h2>
+<p class="meta"><strong><code>twin-update</code> 0.5.2</strong>, released October 30, 2026<br>
+<a href="https://pypi.org/project/twin-update/">PyPI</a> · <a href="https://github.com/Dragon-Lady/twin-update">Source</a> · <a href="https://github.com/Dragon-Lady/twin-update/blob/main/CHANGELOG.md">Changelog</a></p>
+<p>Closes, updates and verifies the same apt-packaged desktop apps on two Linux machines in one run, with a verified one-command rollback. Built for Debian and Ubuntu-family desktops.</p>
+<p>New in 0.5.2: leftover Cursor sandbox helpers are checked before closing, so by default they no longer cause a 90-second close timeout. Only helpers that are clearly idle get closed, with one SIGTERM and never SIGKILL. Anything active or unknown is left alone. A new <code>twin-update close-helpers</code> command runs the same check on one machine from your own terminal, and new optional <code>[close]</code> settings tune it.</p>
+<p>New in 0.5.0: ChatGPT desktop can use the same optional snapshot hook as Cursor. It is off until you set <code>raft.chatgpt_dbs</code> (the older <code>raft.chatgpt_db</code> key still works), and files are copied only while ChatGPT is closed. ChatGPT is still updated when it is open, then left closed. 0.5.1 changes nothing in the tool; it lets an update that did not finish run.</p>
+<h2>Linux Supply Chain Guard</h2>
+<p class="meta"><strong><code>linux-supply-chain-guard</code> 0.6.3</strong>, released October 30, 2026<br>
+<a href="https://www.npmjs.com/package/linux-supply-chain-guard">npm</a> · <a href="https://github.com/Dragon-Lady/linux-supply-chain-guard">Source</a> · <a href="https://github.com/Dragon-Lady/linux-supply-chain-guard/releases/tag/v0.6.3">Release</a></p>
+<p>A read-only Linux host checker for supply-chain incident response, covering vulnerable kernel posture, risky module state and known developer-tooling persistence indicators.</p>
+<p>New in 0.6.3: a read-only check for kernel issue <code>CVE-2026-98432</code>. It compares the running kernel with the first fixed stable release on the 7.2, 5.15 and 5.10 branches (7.2.10, 5.15.223 and 5.10.272); other branches say "unknown, check vendor." The CVE record also lists fixes for 6.1.190, 6.6.159, 6.12.113 and 6.18.56, and mainline 7.3; this release reports those branches as "unknown, check vendor." It also tells you when a reboot is pending, because a fixed kernel only counts once it is the one running. It makes no network calls and does not test the bug.</p>
 <h2>Push Guard</h2>
 <p class="meta"><strong><code>push-guard</code> 0.4.3</strong>, released October 20, 2026<br>
 <a href="https://pypi.org/project/push-guard/">PyPI</a> · <a href="https://github.com/Dragon-Lady/push-guard">Source</a></p>
