@@ -21,6 +21,12 @@ hr{border:0;border-top:1px solid #ddd;margin:1.6rem 0}
 <h1>Recent tool releases</h1>
 <p>Here are the tools Dragon Lady has released on PyPI and npm lately, with each tool's current version and what it does. Names, versions and dates come from each tool's PyPI or npm page (dates in UTC).</p>
 <hr>
+<h2>Raft Ward</h2>
+<p class="meta"><strong><code>raftward</code> 0.1.5</strong>, released October 30, 2026<br>
+<a href="https://pypi.org/project/raftward/0.1.5/">PyPI</a> · <a href="https://github.com/Dragon-Lady/raftward">Source</a> · <a href="https://github.com/Dragon-Lady/raftward/releases/tag/v0.1.5">Release</a></p>
+<p>Offline, read-only integrity checks for closed SQLite databases, frozen exports and backup folders. It looks for missing files, corruption, suspicious shrinkage, permission changes and signs of bulk encryption or renaming, and it does not change the files it watches. It skips a target while an app that owns it is running.</p>
+<p>New in 0.1.5: an opt-in setting, <code>owner_exempt = ["cursor-agent-worker"]</code> (or <code>gate(..., owner_exempt=["cursor-agent-worker"])</code> in the Python API), so Cursor's background agent worker no longer counts as a running Cursor app. The Cursor editor and other <code>cursor-agent</code> commands still do. An exempted worker is still checked for open target files and transfer activity. It is off by default, so existing setups work exactly as in 0.1.4.</p>
+<p>Upgrade with <code>uv tool install 'raftward==0.1.5' --force</code> or <code>pip install -U 'raftward==0.1.5'</code>.</p>
 <h2>Twin Update</h2>
 <p class="meta"><strong><code>twin-update</code> 0.5.2</strong>, released October 30, 2026<br>
 <a href="https://pypi.org/project/twin-update/">PyPI</a> · <a href="https://github.com/Dragon-Lady/twin-update">Source</a> · <a href="https://github.com/Dragon-Lady/twin-update/blob/main/CHANGELOG.md">Changelog</a></p>
