@@ -21,6 +21,12 @@ hr{border:0;border-top:1px solid #ddd;margin:1.6rem 0}
 <h1>Recent tool releases</h1>
 <p>Here are the tools Dragon Lady has released on PyPI and npm lately, with each tool's current version and what it does. Names, versions and dates come from each tool's PyPI or npm page (dates in UTC).</p>
 <hr>
+<h2>Raft Mover</h2>
+<p class="meta"><strong><code>raftmover</code> 0.1.2</strong>, released October 30, 2026<br>
+<a href="https://pypi.org/project/raftmover/0.1.2/">PyPI</a> · <a href="https://github.com/Dragon-Lady/raftmover">Source</a> · <a href="https://github.com/Dragon-Lady/raftmover/releases/tag/v0.1.2">Release</a></p>
+<p>A fail-closed handoff of closed SQLite chat databases, such as Cursor's, between two Linux machines. It uses Raft Ward to check that the apps that own the files are closed before it sends or adopts a frozen copy. It is a supervised prototype, and installing it does not set up a timer.</p>
+<p>New in 0.1.2: Raft Mover no longer waits on Cursor's background agent worker. That worker never uses the files Raft Mover moves, but until now a move would not start while it was running. Raft Mover now turns on Raft Ward 0.1.5's <code>owner_exempt = ["cursor-agent-worker"]</code> by default, so a move can go ahead while the worker runs. Nothing else got looser. The Cursor editor and every other <code>cursor-agent</code> command still hold a move, and the worker still blocks one if it has a target file open or is moving files. If you prefer the old behavior, set <code>owner_exempt = []</code>. The README also adds a note: a terminal command or script that mentions an app's name counts as that app running. Raft Mover 0.1.2 needs Raft Ward 0.1.5 or newer.</p>
+<p>Upgrade with <code>uv tool install 'raftmover==0.1.2' --with 'raftward==0.1.5' --force</code> or <code>pip install -U 'raftmover==0.1.2'</code>.</p>
 <h2>Raft Ward</h2>
 <p class="meta"><strong><code>raftward</code> 0.1.5</strong>, released October 30, 2026<br>
 <a href="https://pypi.org/project/raftward/0.1.5/">PyPI</a> · <a href="https://github.com/Dragon-Lady/raftward">Source</a> · <a href="https://github.com/Dragon-Lady/raftward/releases/tag/v0.1.5">Release</a></p>
